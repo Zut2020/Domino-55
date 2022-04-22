@@ -35,6 +35,36 @@ namespace Domino_55
             DominoButton btn = (DominoButton)sender;
 
             btn.toggle();
+
+            int pressedButtons = 0;
+
+            foreach (DominoButton button in buttons)
+            {
+                if (button.Pressed)
+                    pressedButtons++;
+            }
+
+            if (pressedButtons == 2)
+            {
+                foreach (var item in buttons)
+                {
+                    if (item.Pressed)
+                    {
+                        item.Action();
+                    }
+                }
+            }
+
+            if (pressedButtons >= 2)
+            {
+                foreach (var item in buttons)
+                {
+                    if (item.Pressed)
+                    {
+                        item.release(); 
+                    }
+                }
+            }
         }
     }
 }

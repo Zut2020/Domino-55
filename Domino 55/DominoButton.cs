@@ -13,6 +13,12 @@ namespace Domino_55
     {
         private bool pressed = false;
 
+        public bool Pressed
+        {
+            get { return pressed; }
+            private set { pressed = value; }
+        }
+
         public void toggle()
         {
             if (pressed)
@@ -40,6 +46,11 @@ namespace Domino_55
             Grid grid = this.Content as Grid;
 
             grid.Children.RemoveAt(1);
+        }
+
+        public virtual void Action()
+        {
+            throw new NotImplementedException("DominoButton Action()");
         }
     }
 }
