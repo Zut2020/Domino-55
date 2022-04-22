@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:Domino_55"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="16"/>
+            <Setter Property="Height" Value="16"/>
+        </Style>
     </Application.Resources>
 </Application>
