@@ -8,4 +8,55 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="img\d55.png" />
+    <None Remove="img\d55minden.png" />
+    <None Remove="img\feher-feketeGomb.png" />
+    <None Remove="img\feher-kekGomb.png" />
+    <None Remove="img\fekete-feherGomb.png" />
+    <None Remove="img\feketeGomb.png" />
+    <None Remove="img\kekGomb.png" />
+    <None Remove="img\ures.png" />
+    <None Remove="img\voros-feketeGomb.png" />
+    <None Remove="img\voros-zoldGomb.png" />
+    <None Remove="img\vorosGomb.png" />
+    <None Remove="img\zoldGomb.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="img\d55.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\feher-feketeGomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\feher-kekGomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\fekete-feherGomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\feketeGomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\kekGomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\ures.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\voros-feketeGomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\voros-zoldGomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\vorosGomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\zoldGomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
