@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Effects;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -20,9 +21,20 @@ namespace Domino_55
     /// </summary>
     public partial class MainWindow : Window
     {
+        IEnumerable<DominoButton> buttons;
         public MainWindow()
         {
             InitializeComponent();
+            buttons = gridMain.Children.OfType<DominoButton>();
+        }
+
+        private Button[] pressedButtons = new Button[2];
+
+        private void btn_Click(object sender, RoutedEventArgs e)
+        {
+            DominoButton btn = (DominoButton)sender;
+
+            btn.toggle();
         }
     }
 }

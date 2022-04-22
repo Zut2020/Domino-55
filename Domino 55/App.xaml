@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Domino_55"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="local:DominoButton">
             <Setter Property="Width" Value="16"/>
             <Setter Property="Height" Value="16"/>
             <Setter Property="Background" Value="#01000000"/>
