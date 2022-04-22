@@ -7,9 +7,40 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="640" Width="1600"
         ResizeMode="NoResize" MinWidth="800" MinHeight="320" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-    <Grid>
+    <Grid Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.Background>
-            <!--<ImageBrush ImageSource="{StaticResource d55Hatter}" />-->
             <ImageBrush ImageSource="/Domino 55;component/img/d55minden.png" />
         </Grid.Background>
     </Grid>
