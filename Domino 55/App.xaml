@@ -4,9 +4,15 @@
              xmlns:local="clr-namespace:Domino_55"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="local:DominoButton">
-            <Setter Property="Width" Value="16"/>
-            <Setter Property="Height" Value="16"/>
+        <Style x:Key="buttonStyleNormal" TargetType="local:DominoButton">
+            <Setter x:Name="buttonW" Property="Width" Value="16"/>
+            <Setter x:Name="buttonH" Property="Height" Value="16"/>
+            <Setter Property="Background" Value="#01000000"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+        <Style x:Key="buttonStyleLarge" TargetType="local:DominoButton">
+            <Setter x:Name="buttonW" Property="Width" Value="25"/>
+            <Setter x:Name="buttonH" Property="Height" Value="25"/>
             <Setter Property="Background" Value="#01000000"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style>
