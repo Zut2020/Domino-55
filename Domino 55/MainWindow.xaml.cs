@@ -51,6 +51,7 @@ namespace Domino_55
                     if (item.Pressed)
                     {
                         item.Action();
+                        break;
                     }
                 }
             }
