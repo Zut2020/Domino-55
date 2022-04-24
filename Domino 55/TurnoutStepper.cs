@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Domino_55
 {
@@ -60,12 +61,13 @@ namespace Domino_55
             }
         }
 
-        private void Work()
+        private async void Work()
         {
             while(queue.Count > 0)
             {
-                TurnoutAction turnoutAction = queue.Dequeue();
-                turnoutAction.turnout.allit(turnoutAction.direction);
+                TurnoutAction turnoutAction = queue.Peek();
+                await Task.Run(() => turnoutAction.turnout.allit(turnoutAction.direction));
+                queue.Dequeue();
             }
         }
     }

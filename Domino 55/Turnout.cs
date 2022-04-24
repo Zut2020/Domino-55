@@ -23,24 +23,21 @@ namespace Domino_55
 
         public async void allit(Direction newDirection)
         {
-            await Task.Run(() =>
+            if (this.direction != newDirection)
             {
-                if (this.direction != newDirection)
+                if (newDirection == Direction.Common)
                 {
-                    if (newDirection == Direction.Common)
-                    {
-                        if (this.direction == Direction.Straight)
-                            newDirection = Direction.Diverging;
-                        else
-                            newDirection = Direction.Straight;
-                    }
-                    //TODO send command to z21
-                    Thread.Sleep(2000);
-                    this.direction = newDirection;
-                    String msg = string.Format("{0} váltó {1} irányba állt", number, this.direction.ToString());
-                    MessageBox.Show(msg);
+                    if (this.direction == Direction.Straight)
+                        newDirection = Direction.Diverging;
+                    else
+                        newDirection = Direction.Straight;
                 }
-            });
+                //TODO send command to z21
+                Thread.Sleep(2000);
+                this.direction = newDirection;
+                String msg = string.Format("{0} váltó {1} irányba állt", number, this.direction.ToString());
+                MessageBox.Show(msg);
+            }
         }
 
         public Turnout(int number, int dccAddress)
