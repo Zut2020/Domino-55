@@ -11,7 +11,7 @@ namespace Domino_55
 {
     internal class DominoButton : System.Windows.Controls.Button
     {
-        private bool pressed = false;
+        protected bool pressed = false;
 
         public bool Pressed
         {
@@ -27,7 +27,7 @@ namespace Domino_55
                 press();
         }
 
-        public void press()
+        public virtual void press()
         {
             pressed = true;
 
