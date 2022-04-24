@@ -33,10 +33,14 @@ namespace Domino_55
 
             Grid grid = this.Content as Grid;
 
-            grid.Children.Add(new Image
+            Image image = new Image
             {
                 Source = new BitmapImage(new Uri("/Domino 55;component/img/nyomott.png", UriKind.Relative))
-            });
+            };
+
+            image.Style = (Style)FindResource("imgStylePressed");
+
+            grid.Children.Add(image);
         }
 
         public void release()

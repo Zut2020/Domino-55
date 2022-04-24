@@ -75,7 +75,9 @@ namespace Domino_55
             miLarge.IsChecked = false;
             foreach (var item in buttons)
             {
-                item.Style = FindResource("buttonStyleNormal") as Style;
+                Grid grid = item.Content as Grid;
+                Image img = (Image)grid.Children[0];
+                img.Style = FindResource("buttonStyleNormal") as Style;
             }
         }
 
@@ -84,7 +86,9 @@ namespace Domino_55
             miNormal.IsChecked = false;
             foreach (var item in buttons)
             {
-                item.Style = FindResource("buttonStyleLarge") as Style;
+                Grid grid = item.Content as Grid;
+                Image img = (Image)grid.Children[0];
+                img.Style = FindResource("buttonStyleLarge") as Style;
             }
         }
 

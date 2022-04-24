@@ -56,79 +56,79 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <local:DominoButton x:Name="btnA" Style="{DynamicResource buttonStyleNormal}" Grid.Column="2" Grid.Row="4" Click="btn_Click">
+            <local:DominoButton x:Name="btnA" Grid.Column="2" Grid.Row="4" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/voros-zoldGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btna" Style="{DynamicResource buttonStyleNormal}" Grid.Column="3" Grid.Row="4" Click="btn_Click">
+            <local:DominoButton x:Name="btna" Grid.Column="3" Grid.Row="4" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/zoldGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnK2" Style="{DynamicResource buttonStyleNormal}" Grid.Column="7" Grid.Row="4" Click="btn_Click">
+            <local:DominoButton x:Name="btnK2" Grid.Column="7" Grid.Row="4" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/voros-zoldGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnK1" Style="{DynamicResource buttonStyleNormal}" Grid.Column="7" Grid.Row="5" Click="btn_Click">
+            <local:DominoButton x:Name="btnK1" Grid.Column="7" Grid.Row="5" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/voros-zoldGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnV2" Style="{DynamicResource buttonStyleNormal}" Grid.Column="13" Grid.Row="4" Click="btn_Click">
+            <local:DominoButton x:Name="btnV2" Grid.Column="13" Grid.Row="4" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/voros-zoldGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnV1" Style="{DynamicResource buttonStyleNormal}" Grid.Column="13" Grid.Row="5" Click="btn_Click">
+            <local:DominoButton x:Name="btnV1" Grid.Column="13" Grid.Row="5" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/voros-zoldGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnb" Style="{DynamicResource buttonStyleNormal}" Grid.Column="16" Grid.Row="4" Click="btn_Click">
+            <local:DominoButton x:Name="btnb" Grid.Column="16" Grid.Row="4" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/zoldGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnB" Style="{DynamicResource buttonStyleNormal}" Grid.Column="17" Grid.Row="4" Click="btn_Click">
+            <local:DominoButton x:Name="btnB" Grid.Column="17" Grid.Row="4" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/voros-zoldGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btn2" Style="{DynamicResource buttonStyleNormal}" Grid.Column="6" Grid.Row="8" Margin="0,35,0,0" Click="btn_Click">
+            <local:DominoButton x:Name="btn2" Grid.Column="5" Grid.Row="8" Margin="0,35,0,0" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/feketeGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feketeGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btn4" Style="{DynamicResource buttonStyleNormal}" Grid.Column="7" Grid.Row="8" Margin="0,35,0,0" Click="btn_Click">
+            <local:DominoButton x:Name="btn4" Grid.Column="6" Grid.Row="8" Margin="0,35,0,0" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/feketeGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feketeGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btn1" Style="{DynamicResource buttonStyleNormal}" Grid.Column="14" Grid.Row="8" Margin="0,35,0,0" Click="btn_Click">
+            <local:DominoButton x:Name="btn1" Grid.Column="14" Grid.Row="8" Margin="0,35,0,0" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/feketeGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feketeGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnTorles" Style="{DynamicResource buttonStyleNormal}" Grid.Column="9" Grid.Row="8" Click="btn_Click">
+            <local:DominoButton x:Name="btnTorles" Grid.Column="9" Grid.Row="8" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/zoldGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnJelzoallitas" Style="{DynamicResource buttonStyleNormal}" Grid.Column="10" Grid.Row="8" Click="btn_Click">
+            <local:DominoButton x:Name="btnJelzoallitas" Grid.Column="10" Grid.Row="8" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/vorosGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/vorosGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnkozosallitas" Style="{DynamicResource buttonStyleNormal}" Grid.Column="11" Grid.Row="8" Click="btn_Click">
+            <local:DominoButton x:Name="btnkozosallitas" Grid.Column="11" Grid.Row="8" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/fekete-feherGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/fekete-feherGomb.png"/>
                 </Grid>
             </local:DominoButton>
-            <local:DominoButton x:Name="btnValtovisszajel" Style="{DynamicResource buttonStyleNormal}" Grid.Column="12" Grid.Row="8" Margin="0,35,0,0" Click="btn_Click">
+            <local:DominoButton x:Name="btnValtovisszajel" Grid.Column="12" Grid.Row="8" Margin="0,35,0,0" Click="btn_Click">
                 <Grid>
-                    <Image Source="/Domino 55;component/img/feher-kekGomb.png"/>
+                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feher-kekGomb.png"/>
                 </Grid>
             </local:DominoButton>
         </Grid>
