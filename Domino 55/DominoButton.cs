@@ -50,7 +50,14 @@ namespace Domino_55
 
         public virtual void Action()
         {
-            throw new NotImplementedException("DominoButton Action()");
+            try
+            {
+                throw new NotImplementedException("DominoButton Action()");
+            }
+            catch (NotImplementedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
