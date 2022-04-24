@@ -10,7 +10,7 @@ namespace Domino_55
 {
     internal class Turnout
     {
-        private readonly int dccAddress;
+        private readonly byte dccAddress;
         public readonly int number;
         public enum Direction
         {
@@ -32,19 +32,20 @@ namespace Domino_55
                     else
                         newDirection = Direction.Straight;
                 }
-                //TODO send command to z21
+                if (newDirection == Direction.Straight)
+                    Z21.Instance.setTurnoutStraight(dccAddress);
+                else
+                    Z21.Instance.setTurnoutBranch(dccAddress);
                 Thread.Sleep(2000);
                 this.direction = newDirection;
-                String msg = string.Format("{0} váltó {1} irányba állt", number, this.direction.ToString());
-                MessageBox.Show(msg);
             }
         }
 
-        public Turnout(int number, int dccAddress)
+        public Turnout(int number, byte dccAddress)
         {
             this.number = number;
             this.dccAddress = dccAddress;
-            //TODO z21-nek egyenes irány
+            Z21.Instance.setTurnoutStraight(dccAddress);
             direction = Direction.Straight;
         }
     }
