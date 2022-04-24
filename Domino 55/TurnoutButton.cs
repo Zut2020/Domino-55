@@ -11,8 +11,6 @@ namespace Domino_55
 {
     internal class TurnoutButton : DominoButton
     {
-        private int number;
-
         public override void Action(DominoButton otherButton)
         {
             char chnum = Name.ToCharArray()[3];

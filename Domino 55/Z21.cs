@@ -14,9 +14,10 @@ namespace Domino_55
         private static Z21 instance = null;
         private static readonly object padlock = new object();
 
-        public static Z21 Instance { 
-            get 
-            { 
+        public static Z21 Instance
+        {
+            get
+            {
                 lock (padlock)
                 {
                     if (instance == null)
@@ -25,13 +26,13 @@ namespace Domino_55
                     }
                     return instance;
                 }
-            } 
+            }
         }
 
         private string host = "192.168.1.30";
         private const int port = 21105;
 
-        private void sendMessage(byte[] message)
+        private void SendMessage(byte[] message)
         {
             try
             {
@@ -49,7 +50,7 @@ namespace Domino_55
             }
         }
 
-        private byte[] addXOR(byte[] data)
+        private byte[] AddXOR(byte[] data)
         {
             byte[] result = new byte[data.Length + 1];
             Array.Copy(data, result, data.Length);
@@ -62,7 +63,7 @@ namespace Domino_55
             return result;
         }
 
-        public void loconetSetSensor(byte address, bool sensor)
+        public void LoconetSetSensor(byte address, bool sensor)
         {
             byte IN2;
             //byte[] loconetData = { 0xb2, 0x01, 0b01010000, 0xe3 };
@@ -71,10 +72,10 @@ namespace Domino_55
             else
                 IN2 = 0b01000000;
             byte[] data = { 0x04 + 4, 0x00, 0xa2, 0x00, 0xb2, (byte)(address), IN2, 0xe3 };
-            sendMessage(data);
+            SendMessage(data);
         }
 
-        public void setSpeed(int address, byte speed, bool forward)
+        public void SetSpeed(int address, byte speed, bool forward)
         {
             byte speedbyte;
             if (forward)
@@ -82,40 +83,46 @@ namespace Domino_55
             else
                 speedbyte = speed;
             byte[] data = { 0x0a, 0x00, 0x40, 0x00, 0xe4, 0x13, 0x00, (byte)address, speedbyte };
-            data = addXOR(data);
-            sendMessage(data);
+            data = AddXOR(data);
+            SendMessage(data);
         }
 
-        public void setTurnoutStraight(byte address)
+        public void SetTurnoutStraight(byte address)
         {
             byte[] data = { 0x09, 0x00, 0x40, 0x00, 0x53, 0x00, (byte)(address - 1), 0b10001001, 0x00 };
-            data = addXOR(data);
-            sendMessage(data);
+            data = AddXOR(data);
+            SendMessage(data);
 
             Thread.Sleep(200);
 
             byte[] data2 = { 0x09, 0x00, 0x40, 0x00, 0x53, 0x00, (byte)(address - 1), 0b10000001, 0x00 };
-            data2 = addXOR(data2);
-            sendMessage(data2);
+            data2 = AddXOR(data2);
+            SendMessage(data2);
         }
 
-        public void setTurnoutBranch(byte address)
+        public void SetTurnoutBranch(byte address)
         {
             byte[] data = { 0x09, 0x00, 0x40, 0x00, 0x53, 0x00, (byte)(address - 1), 0b10001000, 0x00 };
-            data = addXOR(data);
-            sendMessage(data);
+            data = AddXOR(data);
+            SendMessage(data);
 
             Thread.Sleep(200);
 
             byte[] data2 = { 0x09, 0x00, 0x40, 0x00, 0x53, 0x00, (byte)(address - 1), 0b10000000, 0x00 };
-            data2 = addXOR(data2);
-            sendMessage(data2);
+            data2 = AddXOR(data2);
+            SendMessage(data2);
         }
 
-        public void stop()
+        public void PowerOn()
+        {
+            byte[] data = { 0x07, 0x00, 0x40, 0x00, 0x21, 0x81, 0xa0 };
+            SendMessage(data);
+        }
+
+        public void Stop()
         {
             byte[] data = { 0x06, 0x00, 0x40, 0x00, 0x80, 0x80 };
-            sendMessage(data);
+            SendMessage(data);
         }
     }
 }
