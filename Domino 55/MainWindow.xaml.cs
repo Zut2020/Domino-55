@@ -28,6 +28,10 @@ namespace Domino_55
             buttons = gridMain.Children.OfType<DominoButton>();
             miDomInd.IsChecked = true;
             miNormal.IsChecked = true;
+
+            TurnoutStepper.Instance.AddTurnout(new Turnout(2, 1));
+            TurnoutStepper.Instance.AddTurnout(new Turnout(4, 2));
+            TurnoutStepper.Instance.AddTurnout(new Turnout(1, 3));
         }
 
         private Button[] pressedButtons = new Button[2];
@@ -48,14 +52,15 @@ namespace Domino_55
 
             if (pressedButtons == 2)
             {
+                List<DominoButton> pressed = new List<DominoButton>();
                 foreach (var item in buttons)
                 {
                     if (item.Pressed)
                     {
-                        item.Action();
-                        break;
+                        pressed.Add(item);
                     }
                 }
+                pressed[0].Action(pressed[1]);
             }
 
             if (pressedButtons >= 2)

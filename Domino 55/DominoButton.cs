@@ -52,7 +52,7 @@ namespace Domino_55
             grid.Children.RemoveAt(1);
         }
 
-        public virtual void Action()
+        public virtual void Action(DominoButton otherButton)
         {
             try
             {
