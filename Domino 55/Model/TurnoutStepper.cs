@@ -59,7 +59,7 @@ namespace Domino_55.Model
                 if (queue.Count > 0)
                 {
                     queue.Enqueue(turnoutAction);
-                    turnoutAction.turnout.controller.AntimateBlinkStart(turnout.direction);
+                    turnoutAction.turnout.controller.AntimateBlinkStart();
                 }
                 else
                 {

@@ -35,6 +35,7 @@ namespace Domino_55
             d55.TurnoutFeedbackControllers.Add(new TurnoutFeedbackController(valto2));
             d55.TurnoutFeedbackControllers.Add(new TurnoutFeedbackController(valto4));
             d55.TurnoutFeedbackControllers.Add(new TurnoutFeedbackController(valto1));
+            //d55.TurnoutFeedbackControllers[0].SetTimer();
             d55.BindTurnoutFeedbackControllers();
         }
 

@@ -35,13 +35,13 @@ namespace Domino_55.Model
                     else
                         newDirection = Direction.Straight;
                 }
+                direction = newDirection;
                 if (newDirection == Direction.Straight)
                 {
                     Z21.Instance.SetTurnoutStraight(dccAddress);
                 }
                 else
                     Z21.Instance.SetTurnoutBranch(dccAddress);
-                direction = newDirection;
                 controller.AnimateSwitch(direction);
             }
             controller.Update();

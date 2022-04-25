@@ -25,7 +25,7 @@ namespace Domino_55.Views
             InitializeComponent();
         }
 
-        internal void SetDivergent()
+        internal void SetBranch()
         {
             this.Dispatcher.Invoke(() =>
             {

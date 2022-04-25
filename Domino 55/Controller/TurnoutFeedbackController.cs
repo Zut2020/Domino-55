@@ -6,30 +6,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Diagnostics.Tracing;
+using System.Timers;
 
 namespace Domino_55.Controller
 {
 
     public class TurnoutFeedbackController
     {
+        private static System.Timers.Timer _timer;
+        private const int delayTime = 500;
+        private const int switchTime = 2500;
         private TurnoutFeedbackView view;
         private Turnout turnout;
-
-        CancellationTokenSource source;
-        CancellationToken token;
-        TaskFactory taskFactory;
-        Task task;
-
-        public void BindTurnout(Turnout turnout)
-        {
-            this.turnout = turnout;
-        }
-
+        private bool blinking = false;
         private bool feedback = false;
 
         public TurnoutFeedbackController(TurnoutFeedbackView view)
         {
             this.view = view;
+            SetTimer();
+        }
+        public void SetTimer()
+        {
+            _timer = new System.Timers.Timer(delayTime);
+            _timer.Elapsed += Blink;
+            _timer.AutoReset = true;
+            _timer.Enabled = true;
+        }
+        public void BindTurnout(Turnout turnout)
+        {
+            this.turnout = turnout;
+        }
+        public void Update()
+        {
+            if (feedback)
+            {
+                if (turnout.direction == Turnout.Direction.Straight)
+                    view.SetStraight();
+                else
+                    view.SetBranch();
+            }
+            else
+                view.SetOff();
         }
 
         public void FeedbackON()
@@ -44,91 +63,54 @@ namespace Domino_55.Controller
             Update();
         }
 
-        public void Update()
-        {
-            if (feedback)
-            {
-                if (turnout.direction == Turnout.Direction.Straight)
-                    view.SetStraight();
-                else
-                    view.SetDivergent();
-            }
-            else
-                view.SetOff();
-        }
 
-        private const int delayTime = 500;
         internal void AnimateSwitch(Turnout.Direction direction)
         {
-            if (direction == Turnout.Direction.Straight)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    view.SetOff();
-                    Thread.Sleep(delayTime);
-                    view.SetStraight();
-                    Thread.Sleep(delayTime);
-                }
-            }
-            else
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    view.SetOff();
-                    Thread.Sleep(delayTime);
-                    view.SetDivergent();
-                    Thread.Sleep(delayTime);
-                }
-            }
+            blinking = true;
+            Thread.Sleep(switchTime);
+            blinking = false;
             Update();
         }
 
-        public void AntimateBlinkStart(Turnout.Direction direction)
+        public void AntimateBlinkStart()
         {
-            source = new CancellationTokenSource();
-            token = source.Token;
-            taskFactory = new TaskFactory();
-            task = taskFactory.StartNew(() =>
-            {
-                try
-               {
-                   if (direction == Turnout.Direction.Straight)
-                   {
-                       while (true)
-                       {
-                           view.SetOff();
-                           Thread.Sleep(delayTime);
-                           view.SetStraight();
-                           Thread.Sleep(delayTime);
-                           token.ThrowIfCancellationRequested();
-                       }
-                   }
-                   else
-                   {
-                       while (true)
-                       {
-                           view.SetOff();
-                           Thread.Sleep(delayTime);
-                           view.SetDivergent();
-                           Thread.Sleep(delayTime);
-                           token.ThrowIfCancellationRequested();
-                       }
-                   }
-               }
-               catch (OperationCanceledException)
-               {
-
-               }
-           }, source.Token);
+            blinking = true;
         }
 
         public void AnimateBlinkStop()
         {
-            if (task != null)
+            blinking = false;
+        }
+
+        private bool blinkLight = false;
+        private void Blink(object? sender, ElapsedEventArgs e)
+        {
+            if (blinking)
             {
-                source.Cancel();
-                source.Dispose();
+                if (turnout.direction == Turnout.Direction.Straight)
+                {
+                    if (!blinkLight)
+                    {
+                        view.SetStraight();
+                    }
+                    else
+                    {
+                        view.SetOff();
+                    }
+                }
+                else
+                {
+                    if (!blinkLight)
+                    {
+                        view.SetBranch();
+                    }
+                    else
+                    {
+                        view.SetOff();
+                    }
+                }
             }
+            blinkLight = !blinkLight;
         }
     }
 }
