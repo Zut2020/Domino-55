@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Domino_55
+namespace Domino_55.Model
 {
     internal class TurnoutStepper
     {
@@ -63,10 +63,10 @@ namespace Domino_55
 
         private async void Work()
         {
-            while(queue.Count > 0)
+            while (queue.Count > 0)
             {
                 TurnoutAction turnoutAction = queue.Peek();
-                await Task.Run(() => turnoutAction.turnout.allit(turnoutAction.direction));
+                await Task.Run(() => turnoutAction.turnout.Set(turnoutAction.direction));
                 queue.Dequeue();
             }
         }

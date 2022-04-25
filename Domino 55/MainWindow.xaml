@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Domino_55"
+        xmlns:local="clr-namespace:Domino_55" xmlns:views="clr-namespace:Domino_55.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="640" Width="1600"
         ResizeMode="NoResize" MinWidth="800" MinHeight="320" ScrollViewer.VerticalScrollBarVisibility="Disabled">
@@ -56,7 +56,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <local:DominoButton x:Name="btnA" Grid.Column="2" Grid.Row="4" Click="btn_Click">
+            <!--<local:DominoButton x:Name="btnA" Grid.Column="2" Grid.Row="4" Click="btn_Click">
                 <Grid>
                     <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
                 </Grid>
@@ -95,42 +95,21 @@
                 <Grid>
                     <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
                 </Grid>
-            </local:DominoButton>
-            <local:TurnoutButton x:Name="btn2" Grid.Column="5" Grid.Row="8"  Click="btn_Click">
-                <Grid>
-                    <Image Margin="0,35,0,0" Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feketeGomb.png"/>
-                </Grid>
-            </local:TurnoutButton>
-            <local:TurnoutButton x:Name="btn4" Grid.Column="6" Grid.Row="8" Click="btn_Click">
-                <Grid>
-                    <Image Margin="0,35,0,0" Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feketeGomb.png"/>
-                </Grid>
-            </local:TurnoutButton>
-            <local:TurnoutButton x:Name="btn1" Grid.Column="14" Grid.Row="8" Click="btn_Click">
-                <Grid>
-                    <Image Margin="0,35,0,0" Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feketeGomb.png"/>
-                </Grid>
-            </local:TurnoutButton>
-            <local:DominoButton x:Name="btnTorles" Grid.Column="9" Grid.Row="8" Click="btn_Click">
+            </local:DominoButton>-->
+            <views:TurnoutButtonView x:Name="btn2" Grid.Column="5" Grid.Row="8" Click="TurnoutButtonClick"/>
+            <views:TurnoutButtonView x:Name="btn4" Grid.Column="6" Grid.Row="8" Click="TurnoutButtonClick"/>
+            <views:TurnoutButtonView x:Name="btn1" Grid.Column="14" Grid.Row="8" Click="TurnoutButtonClick"/>
+            <!--<local:DominoButton x:Name="btnTorles" Grid.Column="9" Grid.Row="8" Click="btn_Click">
                 <Grid>
                     <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/zoldGomb.png"/>
                 </Grid>
-            </local:DominoButton>
-            <local:DominoButton x:Name="btnJelzoallitas" Grid.Column="10" Grid.Row="8" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/vorosGomb.png"/>
-                </Grid>
-            </local:DominoButton>
-            <local:TurnoutCommonButton x:Name="btnkozosallitas" Grid.Column="11" Grid.Row="8" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/fekete-feherGomb.png"/>
-                </Grid>
-            </local:TurnoutCommonButton>
-            <local:DominoButton  x:Name="btnValtovisszajel" Grid.Column="12" Grid.Row="8" Click="btn_Click">
+            </local:DominoButton>-->
+            <views:TurnoutCommonButtonView x:Name="btnkozosallitas" Grid.Column="11" Grid.Row="8"/>
+            <!--<local:DominoButton  x:Name="btnValtovisszajel" Grid.Column="12" Grid.Row="8" Click="btn_Click">
                 <Grid>
                     <Image Margin="0,35,0,0" Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feher-kekGomb.png"/>
                 </Grid>
-            </local:DominoButton>
+            </local:DominoButton>-->
         </Grid>
     </DockPanel>
 </Window>

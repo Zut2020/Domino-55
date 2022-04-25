@@ -6,9 +6,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Domino_55
+namespace Domino_55.Model
 {
-    internal class Turnout
+    public class Turnout
     {
         private readonly byte dccAddress;
         public readonly int number;
@@ -21,13 +21,13 @@ namespace Domino_55
 
         private Direction direction;
 
-        public async void allit(Direction newDirection)
+        public void Set(Direction newDirection)
         {
-            if (this.direction != newDirection)
+            if (direction != newDirection)
             {
                 if (newDirection == Direction.Common)
                 {
-                    if (this.direction == Direction.Straight)
+                    if (direction == Direction.Straight)
                         newDirection = Direction.Diverging;
                     else
                         newDirection = Direction.Straight;
@@ -37,7 +37,7 @@ namespace Domino_55
                 else
                     Z21.Instance.SetTurnoutBranch(dccAddress);
                 Thread.Sleep(2000);
-                this.direction = newDirection;
+                direction = newDirection;
             }
         }
 

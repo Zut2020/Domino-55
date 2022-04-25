@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domino_55
+namespace Domino_55.Controller
 {
-    internal class TurnoutCommonButton : DominoButton
+    internal class TurnoutCommonButtonController
     {
     }
 }

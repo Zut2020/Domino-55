@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Effects;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Domino_55.Controller;
+using Domino_55.Views;
 
 namespace Domino_55
 {
@@ -21,80 +23,25 @@ namespace Domino_55
     /// </summary>
     public partial class MainWindow : Window
     {
-        IEnumerable<DominoButton> buttons;
+        private List<TwoStepButtonController> pressed = new List<TwoStepButtonController>();
+
         public MainWindow()
         {
             InitializeComponent();
-            buttons = gridMain.Children.OfType<DominoButton>();
-            miDomInd.IsChecked = true;
-            miNormal.IsChecked = true;
-
-            TurnoutStepper.Instance.AddTurnout(new Turnout(2, 1));
-            TurnoutStepper.Instance.AddTurnout(new Turnout(4, 2));
-            TurnoutStepper.Instance.AddTurnout(new Turnout(1, 3));
+            btn2.BindController(new TurnoutButtonContorller(2, btn2));
+            btn4.BindController(new TurnoutButtonContorller(4, btn4));
+            btn1.BindController(new TurnoutButtonContorller(1, btn1));
         }
 
-        private Button[] pressedButtons = new Button[2];
-
-        private void btn_Click(object sender, RoutedEventArgs e)
-        {
-            DominoButton btn = (DominoButton)sender;
-
-            btn.toggle();
-
-            int pressedButtons = 0;
-
-            foreach (DominoButton button in buttons)
-            {
-                if (button.Pressed)
-                    pressedButtons++;
-            }
-
-            if (pressedButtons == 2)
-            {
-                List<DominoButton> pressed = new List<DominoButton>();
-                foreach (var item in buttons)
-                {
-                    if (item.Pressed)
-                    {
-                        pressed.Add(item);
-                    }
-                }
-                pressed[0].Action(pressed[1]);
-            }
-
-            if (pressedButtons >= 2)
-            {
-                foreach (var item in buttons)
-                {
-                    if (item.Pressed)
-                    {
-                        item.release(); 
-                    }
-                }
-            }
-        }
 
         private void miNormal_Checked(object sender, RoutedEventArgs e)
         {
-            miLarge.IsChecked = false;
-            foreach (var item in buttons)
-            {
-                Grid grid = item.Content as Grid;
-                Image img = (Image)grid.Children[0];
-                img.Style = FindResource("buttonStyleNormal") as Style;
-            }
+
         }
 
         private void miLarge_Checked(object sender, RoutedEventArgs e)
         {
-            miNormal.IsChecked = false;
-            foreach (var item in buttons)
-            {
-                Grid grid = item.Content as Grid;
-                Image img = (Image)grid.Children[0];
-                img.Style = FindResource("buttonStyleLarge") as Style;
-            }
+
         }
 
         private void miDomInd_Checked(object sender, RoutedEventArgs e)
@@ -123,6 +70,38 @@ namespace Domino_55
             miDomInd.IsChecked = false;
             miDomCon.IsChecked = false;
             miElpInd.IsChecked = false;
+        }
+
+        private void TurnoutButtonClick(object sender, RoutedEventArgs e)
+        {
+            TurnoutButtonView view = sender as TurnoutButtonView;
+            TurnoutButtonContorller contorller = view.Contorller;
+
+            if (!contorller.Pressed)
+            {
+                contorller.Press();
+
+                pressed.Add(contorller);
+
+                if (pressed.Count == 2)
+                {
+                    pressed[0].Action(pressed[1]);
+                }
+
+                if (pressed.Count >= 2)
+                {
+                    foreach (var item in pressed)
+                    {
+                        item.Release();
+                    }
+                    pressed.Clear();
+                }
+            }
+            else
+            {
+                contorller.Release();
+                pressed.Remove(contorller);
+            }
         }
     }
 }
