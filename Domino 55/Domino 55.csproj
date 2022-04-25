@@ -18,6 +18,11 @@
     <None Remove="img\kekGomb.png" />
     <None Remove="img\nyomott.png" />
     <None Remove="img\ures.png" />
+    <None Remove="img\valtoEgyenes.png" />
+    <None Remove="img\valtoFoglaltEgyenes.png" />
+    <None Remove="img\valtoFoglaltKitero.png" />
+    <None Remove="img\valtoKitero.png" />
+    <None Remove="img\valtoUres.png" />
     <None Remove="img\voros-feketeGomb.png" />
     <None Remove="img\voros-zoldGomb.png" />
     <None Remove="img\vorosGomb.png" />
@@ -47,6 +52,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="img\ures.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\valtoEgyenes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\valtoFoglaltEgyenes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\valtoFoglaltKitero.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\valtoKitero.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\valtoUres.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="img\voros-feketeGomb.png">

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
-namespace Domino_55
+namespace Domino_55.Model
 {
     internal class TurnoutStepper
     {
@@ -44,6 +45,11 @@ namespace Domino_55
             turnouts.Add(turnout);
         }
 
+        public void AddTurnouts(List<Turnout> addedturnouts)
+        {
+            turnouts.AddRange(addedturnouts);
+        }
+
         public void SetTurnout(int number, Turnout.Direction direction)
         {
             Turnout turnout = turnouts.Find(x => x.number == number);
@@ -60,12 +66,13 @@ namespace Domino_55
             }
         }
 
-        private void Work()
+        private async void Work()
         {
-            while(queue.Count > 0)
+            while (queue.Count > 0)
             {
-                TurnoutAction turnoutAction = queue.Dequeue();
-                turnoutAction.turnout.allit(turnoutAction.direction);
+                TurnoutAction turnoutAction = queue.Peek();
+                await Task.Run(() => turnoutAction.turnout.Set(turnoutAction.direction));
+                queue.Dequeue();
             }
         }
     }
