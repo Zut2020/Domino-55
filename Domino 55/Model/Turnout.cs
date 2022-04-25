@@ -11,7 +11,7 @@ namespace Domino_55.Model
 {
     public class Turnout
     {
-        private TurnoutFeedbackController controller;
+        public TurnoutFeedbackController controller;
         public void BindController(TurnoutFeedbackController controller) => this.controller = controller;
         private readonly byte dccAddress;
         public readonly int number;
@@ -42,7 +42,7 @@ namespace Domino_55.Model
                 else
                     Z21.Instance.SetTurnoutBranch(dccAddress);
                 direction = newDirection;
-                controller.Animate(direction);
+                controller.AnimateSwitch(direction);
             }
             controller.Update();
         }

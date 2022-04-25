@@ -57,7 +57,10 @@ namespace Domino_55.Model
             if (turnout != null)
             {
                 if (queue.Count > 0)
+                {
                     queue.Enqueue(turnoutAction);
+                    turnoutAction.turnout.controller.AntimateBlinkStart(turnout.direction);
+                }
                 else
                 {
                     queue.Enqueue(turnoutAction);
@@ -71,9 +74,11 @@ namespace Domino_55.Model
             while (queue.Count > 0)
             {
                 TurnoutAction turnoutAction = queue.Peek();
+                turnoutAction.turnout.controller.AnimateBlinkStop();
                 await Task.Run(() => turnoutAction.turnout.Set(turnoutAction.direction));
                 queue.Dequeue();
             }
+
         }
     }
 }

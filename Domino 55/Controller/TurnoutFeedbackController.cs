@@ -14,6 +14,12 @@ namespace Domino_55.Controller
     {
         private TurnoutFeedbackView view;
         private Turnout turnout;
+
+        CancellationTokenSource source;
+        CancellationToken token;
+        TaskFactory taskFactory;
+        Task task;
+
         public void BindTurnout(Turnout turnout)
         {
             this.turnout = turnout;
@@ -52,7 +58,7 @@ namespace Domino_55.Controller
         }
 
         private const int delayTime = 500;
-        internal void Animate(Turnout.Direction direction)
+        internal void AnimateSwitch(Turnout.Direction direction)
         {
             if (direction == Turnout.Direction.Straight)
             {
@@ -75,6 +81,54 @@ namespace Domino_55.Controller
                 }
             }
             Update();
+        }
+
+        public void AntimateBlinkStart(Turnout.Direction direction)
+        {
+            source = new CancellationTokenSource();
+            token = source.Token;
+            taskFactory = new TaskFactory();
+            task = taskFactory.StartNew(() =>
+            {
+                try
+               {
+                   if (direction == Turnout.Direction.Straight)
+                   {
+                       while (true)
+                       {
+                           view.SetOff();
+                           Thread.Sleep(delayTime);
+                           view.SetStraight();
+                           Thread.Sleep(delayTime);
+                           token.ThrowIfCancellationRequested();
+                       }
+                   }
+                   else
+                   {
+                       while (true)
+                       {
+                           view.SetOff();
+                           Thread.Sleep(delayTime);
+                           view.SetDivergent();
+                           Thread.Sleep(delayTime);
+                           token.ThrowIfCancellationRequested();
+                       }
+                   }
+               }
+               catch (OperationCanceledException)
+               {
+
+               }
+           }, source.Token);
+        }
+
+        public void AnimateBlinkStop()
+        {
+            if (task != null)
+            {
+                source.Cancel();
+                source.Dispose();
+            }
         }
     }
 }
