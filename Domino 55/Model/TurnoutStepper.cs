@@ -45,6 +45,11 @@ namespace Domino_55.Model
             turnouts.Add(turnout);
         }
 
+        public void AddTurnouts(List<Turnout> addedturnouts)
+        {
+            turnouts.AddRange(addedturnouts);
+        }
+
         public void SetTurnout(int number, Turnout.Direction direction)
         {
             Turnout turnout = turnouts.Find(x => x.number == number);

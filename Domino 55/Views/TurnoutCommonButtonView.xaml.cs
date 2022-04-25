@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domino_55.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace Domino_55.Views
     /// </summary>
     public partial class TurnoutCommonButtonView : TwoStepButtonView
     {
+        private TurnoutCommonButtonController controller;
         public TurnoutCommonButtonView()
         {
             InitializeComponent();
+            controller = new TurnoutCommonButtonController(this);
         }
+
+        public override TwoStepButtonController Controller() => controller;
     }
 }

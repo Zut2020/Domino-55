@@ -96,15 +96,15 @@
                     <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>-->
-            <views:TurnoutButtonView x:Name="btn2" Grid.Column="5" Grid.Row="8" Click="TurnoutButtonClick"/>
-            <views:TurnoutButtonView x:Name="btn4" Grid.Column="6" Grid.Row="8" Click="TurnoutButtonClick"/>
-            <views:TurnoutButtonView x:Name="btn1" Grid.Column="14" Grid.Row="8" Click="TurnoutButtonClick"/>
+            <views:TurnoutButtonView x:Name="btn2" Grid.Column="5" Grid.Row="8" Click="TwoStepButtonClick"/>
+            <views:TurnoutButtonView x:Name="btn4" Grid.Column="6" Grid.Row="8" Click="TwoStepButtonClick"/>
+            <views:TurnoutButtonView x:Name="btn1" Grid.Column="14" Grid.Row="8" Click="TwoStepButtonClick"/>
             <!--<local:DominoButton x:Name="btnTorles" Grid.Column="9" Grid.Row="8" Click="btn_Click">
                 <Grid>
                     <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/zoldGomb.png"/>
                 </Grid>
             </local:DominoButton>-->
-            <views:TurnoutCommonButtonView x:Name="btnkozosallitas" Grid.Column="11" Grid.Row="8"/>
+            <views:TurnoutCommonButtonView x:Name="btnkozosallitas" Grid.Column="11" Grid.Row="8" Click="TwoStepButtonClick"/>
             <!--<local:DominoButton  x:Name="btnValtovisszajel" Grid.Column="12" Grid.Row="8" Click="btn_Click">
                 <Grid>
                     <Image Margin="0,35,0,0" Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feher-kekGomb.png"/>

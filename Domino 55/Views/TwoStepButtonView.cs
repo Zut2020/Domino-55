@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domino_55.Controller;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
@@ -6,9 +7,11 @@ using System.Windows.Media.Imaging;
 
 namespace Domino_55.Views
 {
-    public class TwoStepButtonView : Button
+    public abstract class TwoStepButtonView : Button
     {
-        public void Press()
+        public abstract TwoStepButtonController Controller();
+        public 
+        virtual void Press()
         {
             Grid grid = this.Content as Grid;
 

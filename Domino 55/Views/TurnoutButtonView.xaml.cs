@@ -21,11 +21,25 @@ namespace Domino_55.Views
     /// </summary>
     public partial class TurnoutButtonView : TwoStepButtonView
     {
-        private TurnoutButtonContorller contorller;
+        private TurnoutButtonContorller controller;
 
-        public TurnoutButtonContorller Contorller { get => contorller; set => contorller = value; }
+        public override TwoStepButtonController Controller() => controller;
 
-        public void BindController(TurnoutButtonContorller contorller) => this.Contorller = contorller;
+        public void BindController(TurnoutButtonContorller controller) => this.controller = controller;
+
+        public override void Press()
+        {
+            Grid grid = this.Content as Grid;
+
+            Image image = new Image
+            {
+                Source = new BitmapImage(new Uri("/Domino 55;component/img/nyomott.png", UriKind.Relative))
+            };
+
+            image.Style = (Style)FindResource("imgStylePressed2");
+
+            grid.Children.Add(image);
+        }
 
         public TurnoutButtonView()
         {

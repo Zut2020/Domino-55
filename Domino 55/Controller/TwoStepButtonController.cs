@@ -10,7 +10,7 @@ using Domino_55.Views;
 
 namespace Domino_55.Controller
 {
-    public class TwoStepButtonController
+    public abstract class TwoStepButtonController
     {
         private TwoStepButtonView view;
 
@@ -39,10 +39,7 @@ namespace Domino_55.Controller
             view.Release();
         }
 
-        public virtual void Action(TwoStepButtonController otherButton)
-        {
-            throw new NotImplementedException("DominoButton Action()");
-        }
+        public abstract void Action(TwoStepButtonController otherButton);
 
     }
 }

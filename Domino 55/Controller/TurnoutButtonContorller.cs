@@ -22,7 +22,7 @@ namespace Domino_55.Controller
         {
             //base.Action(otherButton);
             if (otherButton.GetType() == typeof(TurnoutCommonButtonController))
-                TurnoutStepper.Instance.SetTurnout(number, Turnout.Direction.Common);
+                Domino55.Instance.SetTurnout(number, Turnout.Direction.Common);
         }
     }
 }

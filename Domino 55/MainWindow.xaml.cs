@@ -31,6 +31,7 @@ namespace Domino_55
             btn2.BindController(new TurnoutButtonContorller(2, btn2));
             btn4.BindController(new TurnoutButtonContorller(4, btn4));
             btn1.BindController(new TurnoutButtonContorller(1, btn1));
+            Domino55Controller d55 = new Domino55Controller();
         }
 
 
@@ -72,10 +73,10 @@ namespace Domino_55
             miElpInd.IsChecked = false;
         }
 
-        private void TurnoutButtonClick(object sender, RoutedEventArgs e)
+        private void TwoStepButtonClick(object sender, RoutedEventArgs e)
         {
-            TurnoutButtonView view = sender as TurnoutButtonView;
-            TurnoutButtonContorller contorller = view.Contorller;
+            TwoStepButtonView view = sender as TwoStepButtonView;
+            TwoStepButtonController contorller = view.Controller();
 
             if (!contorller.Pressed)
             {
