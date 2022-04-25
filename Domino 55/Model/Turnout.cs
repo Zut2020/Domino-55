@@ -5,11 +5,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using Domino_55.Controller;
 
 namespace Domino_55.Model
 {
     public class Turnout
     {
+        private TurnoutFeedbackController controller;
+        public void BindController(TurnoutFeedbackController controller) => this.controller = controller;
         private readonly byte dccAddress;
         public readonly int number;
         public enum Direction
@@ -19,7 +22,7 @@ namespace Domino_55.Model
             Common
         }
 
-        private Direction direction;
+        public Direction direction;
 
         public void Set(Direction newDirection)
         {
@@ -33,12 +36,15 @@ namespace Domino_55.Model
                         newDirection = Direction.Straight;
                 }
                 if (newDirection == Direction.Straight)
+                {
                     Z21.Instance.SetTurnoutStraight(dccAddress);
+                }
                 else
                     Z21.Instance.SetTurnoutBranch(dccAddress);
-                Thread.Sleep(2000);
                 direction = newDirection;
+                controller.Animate(direction);
             }
+            controller.Update();
         }
 
         public Turnout(int number, byte dccAddress)

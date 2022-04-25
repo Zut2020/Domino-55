@@ -24,6 +24,7 @@ namespace Domino_55
     public partial class MainWindow : Window
     {
         private List<TwoStepButtonController> pressed = new List<TwoStepButtonController>();
+        Domino55Controller d55 = new Domino55Controller();
 
         public MainWindow()
         {
@@ -31,7 +32,10 @@ namespace Domino_55
             btn2.BindController(new TurnoutButtonContorller(2, btn2));
             btn4.BindController(new TurnoutButtonContorller(4, btn4));
             btn1.BindController(new TurnoutButtonContorller(1, btn1));
-            Domino55Controller d55 = new Domino55Controller();
+            d55.TurnoutFeedbackControllers.Add(new TurnoutFeedbackController(valto2));
+            d55.TurnoutFeedbackControllers.Add(new TurnoutFeedbackController(valto4));
+            d55.TurnoutFeedbackControllers.Add(new TurnoutFeedbackController(valto1));
+            d55.BindTurnoutFeedbackControllers();
         }
 
 
@@ -103,6 +107,11 @@ namespace Domino_55
                 contorller.Release();
                 pressed.Remove(contorller);
             }
+        }
+
+        private void btnValtovisszajel_Click(object sender, RoutedEventArgs e)
+        {
+            d55.ToggleTurnoutFeedback();
         }
     }
 }
