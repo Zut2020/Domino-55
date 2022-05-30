@@ -15,6 +15,7 @@ namespace Domino_55.Model
         public void BindController(TurnoutFeedbackController controller) => this.controller = controller;
         private readonly byte dccAddress;
         public readonly int number;
+        private bool locked;
         public enum Direction
         {
             Straight,
@@ -26,25 +27,41 @@ namespace Domino_55.Model
 
         public void Set(Direction newDirection)
         {
-            if (direction != newDirection)
+            if (!locked)
             {
-                if (newDirection == Direction.Common)
+                controller.Update();
+                if (direction != newDirection)
                 {
-                    if (direction == Direction.Straight)
-                        newDirection = Direction.Diverging;
+                    if (newDirection == Direction.Common)
+                    {
+                        if (direction == Direction.Straight)
+                            newDirection = Direction.Diverging;
+                        else
+                            newDirection = Direction.Straight;
+                    }
+                    direction = newDirection;
+                    if (newDirection == Direction.Straight)
+                    {
+                        Z21.Instance.SetTurnoutStraight(dccAddress);
+                    }
                     else
-                        newDirection = Direction.Straight;
+                        Z21.Instance.SetTurnoutBranch(dccAddress);
+                    controller.AnimateSwitch(direction);
                 }
-                direction = newDirection;
-                if (newDirection == Direction.Straight)
-                {
-                    Z21.Instance.SetTurnoutStraight(dccAddress);
-                }
-                else
-                    Z21.Instance.SetTurnoutBranch(dccAddress);
-                controller.AnimateSwitch(direction);
             }
             controller.Update();
+        }
+
+        internal void Release()
+        {
+            controller.Release();
+            locked = false;
+        }
+
+        internal void Lock()
+        {
+            controller.Lock();
+            locked = true;
         }
 
         public Turnout(int number, byte dccAddress)

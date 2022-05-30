@@ -35,8 +35,38 @@ namespace Domino_55
             d55.TurnoutFeedbackControllers.Add(new TurnoutFeedbackController(valto2));
             d55.TurnoutFeedbackControllers.Add(new TurnoutFeedbackController(valto4));
             d55.TurnoutFeedbackControllers.Add(new TurnoutFeedbackController(valto1));
-            //d55.TurnoutFeedbackControllers[0].SetTimer();
             d55.BindTurnoutFeedbackControllers();
+
+            signalA.BindController(new ArrivalSignalController(signalA));
+            signalB.BindController(new ArrivalSignalController(signalB));
+            signalK1.BindController(new DepartureSignalController(signalK1));
+            signalK2.BindController(new DepartureSignalController(signalK2));
+            signalV1.BindController(new DepartureSignalController(signalV1));
+            signalV2.BindController(new DepartureSignalController(signalV2));
+
+            btnTorles.BindController(new DeleteRouteButtonController(btnTorles));
+
+            TrackFeedbackController kezdopont = new TrackFeedbackController();
+            d55.TrackFeedbackControllers.Add(kezdopont);
+            TrackFeedbackController vegpont = new TrackFeedbackController();
+            d55.TrackFeedbackControllers.Add(vegpont);
+            TrackFeedbackController vagany1 = new TrackFeedbackController();
+            d55.TrackFeedbackControllers.Add(vagany1);
+            TrackFeedbackController vagany2 = new TrackFeedbackController();
+            d55.TrackFeedbackControllers.Add (vagany2);
+            IEnumerable<TrackFeedbackStraightView> straightViews = gridMain.Children.OfType<TrackFeedbackStraightView>();
+            foreach (var straightView in straightViews)
+            {
+                if (straightView.Uid == "kezdopont")
+                    kezdopont.AddView(straightView);
+                else if (straightView.Uid == "vegpont")
+                    vegpont.AddView(straightView);
+                else if (straightView.Uid == "1vagany")
+                    vagany1.AddView(straightView);
+                else if (straightView.Uid == "2vagany")
+                    vagany2.AddView(straightView);
+            }
+            d55.BindTrackFeedbackControllers();
         }
 
 
@@ -77,6 +107,8 @@ namespace Domino_55
             miDomCon.IsChecked = false;
             miElpInd.IsChecked = false;
         }
+
+
 
         private void TwoStepButtonClick(object sender, RoutedEventArgs e)
         {

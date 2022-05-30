@@ -9,8 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="img\atloFoglalt.png" />
+    <None Remove="img\atloLezart.png" />
+    <None Remove="img\atloUres.png" />
     <None Remove="img\d55.png" />
     <None Remove="img\d55minden.png" />
+    <None Remove="img\egyenesFoglalt.png" />
+    <None Remove="img\egyenesLezart.png" />
+    <None Remove="img\egyenesUres.png" />
     <None Remove="img\feher-feketeGomb.png" />
     <None Remove="img\feher-kekGomb.png" />
     <None Remove="img\fekete-feherGomb.png" />
@@ -19,6 +25,7 @@
     <None Remove="img\nyomott.png" />
     <None Remove="img\ures.png" />
     <None Remove="img\valtoEgyenes.png" />
+    <None Remove="img\valtoEgyenesLezart.png" />
     <None Remove="img\valtoFoglaltEgyenes.png" />
     <None Remove="img\valtoFoglaltKitero.png" />
     <None Remove="img\valtoKitero.png" />
@@ -30,7 +37,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="img\atloFoglalt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\atloLezart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\atloUres.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="img\d55.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\egyenesFoglalt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\egyenesLezart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\egyenesUres.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="img\feher-feketeGomb.png">
@@ -55,6 +80,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="img\valtoEgyenes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\valtoEgyenesLezart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="img\valtoFoglaltEgyenes.png">

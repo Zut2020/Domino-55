@@ -9,18 +9,6 @@ namespace Domino_55.Model
 {
     internal class TurnoutStepper
     {
-        private struct TurnoutAction
-        {
-            public Turnout turnout;
-            public Turnout.Direction direction;
-
-            public TurnoutAction(Turnout turnout, Turnout.Direction direction)
-            {
-                this.turnout = turnout;
-                this.direction = direction;
-            }
-        }
-
         private static TurnoutStepper instance = null;
         private static readonly object instanceLock = new object();
         Queue<TurnoutAction> queue = new Queue<TurnoutAction>();
@@ -50,16 +38,17 @@ namespace Domino_55.Model
             turnouts.AddRange(addedturnouts);
         }
 
+
         public void SetTurnout(int number, Turnout.Direction direction)
         {
             Turnout turnout = turnouts.Find(x => x.number == number);
             TurnoutAction turnoutAction = new TurnoutAction(turnout, direction);
             if (turnout != null)
             {
+                turnoutAction.turnout.controller.AntimateBlinkStart();
                 if (queue.Count > 0)
                 {
                     queue.Enqueue(turnoutAction);
-                    turnoutAction.turnout.controller.AntimateBlinkStart();
                 }
                 else
                 {
@@ -69,13 +58,19 @@ namespace Domino_55.Model
             }
         }
 
-        private async void Work()
+        public void SetTurnoutAndLock(Turnout turnout, Turnout.Direction direction)
+        {
+            SetTurnout(turnout.number, direction);
+            turnout.Lock();
+        }
+
+        private void Work()
         {
             while (queue.Count > 0)
             {
                 TurnoutAction turnoutAction = queue.Peek();
                 turnoutAction.turnout.controller.AnimateBlinkStop();
-                await Task.Run(() => turnoutAction.turnout.Set(turnoutAction.direction));
+                turnoutAction.turnout.Set(turnoutAction.direction);
                 queue.Dequeue();
             }
 

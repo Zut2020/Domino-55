@@ -10,7 +10,7 @@ namespace Domino_55.Model
     internal class Domino55
     {
         private Domino55Controller controller;
-        public void BindController(Domino55Controller controller) => this.controller = controller; 
+        public void BindController(Domino55Controller controller) => this.controller = controller;
         private static Domino55 instance = null;
         private static readonly object instanceLock = new object();
         public static Domino55 Instance
@@ -29,13 +29,20 @@ namespace Domino_55.Model
         }
 
         TurnoutStepper turnoutStepper = TurnoutStepper.Instance;
-        List<Turnout> turnouts = new List<Turnout>();
+        public List<Turnout> turnouts = new List<Turnout>();
+        public List<TrackSection> trackSections = new List<TrackSection>();
 
         public Domino55()
         {
             turnouts.Add(new Turnout(2, 1));
             turnouts.Add(new Turnout(4, 2));
             turnouts.Add(new Turnout(1, 3));
+
+            trackSections.Add(new TrackSection("kezdopont"));
+            trackSections.Add(new TrackSection("vegpont"));
+            trackSections.Add(new TrackSection("vagany1"));
+            trackSections.Add(new TrackSection("vagany2"));
+
             turnoutStepper.AddTurnouts(turnouts);
         }
 
@@ -47,9 +54,21 @@ namespace Domino_55.Model
                 turnouts[i].BindController(controller.TurnoutFeedbackControllers[i]);
             }
         }
-        public void SetTurnout(int number, Turnout.Direction direction)
+
+        public void BindTrackFeedbackControllers()
         {
-            turnoutStepper.SetTurnout(number, direction);
+            for (int i = 0; i < controller.TrackFeedbackControllers.Count; i++)
+            {
+                controller.TrackFeedbackControllers[i].BindTrackSection(trackSections[i]);
+                trackSections[i].BindController(controller.TrackFeedbackControllers[i]);
+            }
+        }
+        public async void SetTurnout(int number, Turnout.Direction direction)
+        {
+            await Task.Run(() =>
+            {
+                turnoutStepper.SetTurnout(number, direction);
+            });
         }
     }
 }

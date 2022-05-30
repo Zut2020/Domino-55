@@ -44,7 +44,6 @@ namespace Domino_55.Views
         public TurnoutButtonView()
         {
             InitializeComponent();
-            this.Style = FindResource("valami") as Style;
         }
     }
 }

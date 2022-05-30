@@ -11,6 +11,7 @@ namespace Domino_55.Controller
     {
         private bool turnoutFeedback = false;
         public List<TurnoutFeedbackController> TurnoutFeedbackControllers = new List<TurnoutFeedbackController>();
+        public List<TrackFeedbackController> TrackFeedbackControllers = new List<TrackFeedbackController>();
         Domino55 d55 = Domino55.Instance;
         public Domino55Controller()
         {
@@ -20,6 +21,11 @@ namespace Domino_55.Controller
         public void BindTurnoutFeedbackControllers()
         {
             d55.BindTurnoutFeedbackControllers();
+        }
+
+        public void BindTrackFeedbackControllers()
+        {
+            d55.BindTrackFeedbackControllers();
         }
 
         public void ToggleTurnoutFeedback()

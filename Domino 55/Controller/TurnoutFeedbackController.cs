@@ -21,6 +21,7 @@ namespace Domino_55.Controller
         private Turnout turnout;
         private bool blinking = false;
         private bool feedback = false;
+        private bool locked = false;
 
         public TurnoutFeedbackController(TurnoutFeedbackView view)
         {
@@ -40,7 +41,14 @@ namespace Domino_55.Controller
         }
         public void Update()
         {
-            if (feedback)
+            if (locked)
+            {
+                if (turnout.direction == Turnout.Direction.Straight)
+                    view.LockStraight();
+                else
+                    view.SetBranch();
+            }
+            else if (feedback)
             {
                 if (turnout.direction == Turnout.Direction.Straight)
                     view.SetStraight();
@@ -63,6 +71,17 @@ namespace Domino_55.Controller
             Update();
         }
 
+        public void Lock()
+        {
+            locked = true;
+            Update();
+        }
+
+        public void Release()
+        {
+            locked = false;
+            Update();
+        }
 
         internal void AnimateSwitch(Turnout.Direction direction)
         {

@@ -12,7 +12,6 @@ namespace Domino_55.Controller
     {
         private int number;
 
-
         public TurnoutButtonContorller(int number, TwoStepButtonView twoStepButtonView) : base(twoStepButtonView)
         {
             this.number = number;

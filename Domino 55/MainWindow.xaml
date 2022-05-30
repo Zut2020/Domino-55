@@ -56,61 +56,48 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <!--<local:DominoButton x:Name="btnA" Grid.Column="2" Grid.Row="4" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
-                </Grid>
-            </local:DominoButton>
-            <local:DominoButton x:Name="btna" Grid.Column="3" Grid.Row="4" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/zoldGomb.png"/>
-                </Grid>
-            </local:DominoButton>
-            <local:DominoButton x:Name="btnK2" Grid.Column="7" Grid.Row="4" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
-                </Grid>
-            </local:DominoButton>
-            <local:DominoButton x:Name="btnK1" Grid.Column="7" Grid.Row="5" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
-                </Grid>
-            </local:DominoButton>
-            <local:DominoButton x:Name="btnV2" Grid.Column="13" Grid.Row="4" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
-                </Grid>
-            </local:DominoButton>
-            <local:DominoButton x:Name="btnV1" Grid.Column="13" Grid.Row="5" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
-                </Grid>
-            </local:DominoButton>
-            <local:DominoButton x:Name="btnb" Grid.Column="16" Grid.Row="4" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/zoldGomb.png"/>
-                </Grid>
-            </local:DominoButton>
-            <local:DominoButton x:Name="btnB" Grid.Column="17" Grid.Row="4" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/voros-zoldGomb.png"/>
-                </Grid>
-            </local:DominoButton>-->
+
+
+            <!-- Track feedback -->
+            <views:TrackFeedbackStraightView Grid.Column="2" Grid.Row="4" x:Uid="kezdopont"/>
+            <views:TrackFeedbackStraightView Grid.Column="3" Grid.Row="4" x:Uid="kezdopont"/>
+            <views:TrackFeedbackStraightView Grid.Column="4" Grid.Row="4" x:Uid="kezdopont"/>
+            <views:TrackFeedbackStraightView Grid.Column="7" Grid.Row="4" x:Uid="2vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="8" Grid.Row="4" x:Uid="2vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="9" Grid.Row="4" x:Uid="2vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="10" Grid.Row="4" x:Uid="2vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="11" Grid.Row="4" x:Uid="2vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="12" Grid.Row="4" x:Uid="2vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="13" Grid.Row="4" x:Uid="2vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="15" Grid.Row="4" x:Uid="vegpont"/>
+            <views:TrackFeedbackStraightView Grid.Column="16" Grid.Row="4" x:Uid="vegpont"/>
+            <views:TrackFeedbackStraightView Grid.Column="17" Grid.Row="4" x:Uid="vegpont"/>
+            <views:TrackFeedbackStraightView Grid.Column="6" Grid.Row="5" x:Uid="1vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="7" Grid.Row="5" x:Uid="1vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="8" Grid.Row="5" x:Uid="1vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="9" Grid.Row="5" x:Uid="1vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="10" Grid.Row="5" x:Uid="1vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="11" Grid.Row="5" x:Uid="1vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="12" Grid.Row="5" x:Uid="1vagany"/>
+            <views:TrackFeedbackStraightView Grid.Column="13" Grid.Row="5" x:Uid="1vagany"/>
+            
+            <!-- Buttons -->
+            <views:ArrivalSignalView x:Name="signalA" Grid.Column="2" Grid.Row="4" Click="TwoStepButtonClick"/>
+            <views:ArrivalTargetButtonView x:Name="btna" Grid.Column="3" Grid.Row="4" Click="TwoStepButtonClick"/>
+            <views:DepartureSignalView x:Name="signalK2" Grid.Column="7" Grid.Row="4" Click="TwoStepButtonClick"/>
+            <views:DepartureSignalView x:Name="signalK1" Grid.Column="7" Grid.Row="5" Click="TwoStepButtonClick"/>
+            <views:DepartureSignalView x:Name="signalV2" Grid.Column="13" Grid.Row="4" Click="TwoStepButtonClick"/>
+            <views:DepartureSignalView x:Name="signalV1" Grid.Column="13" Grid.Row="5" Click="TwoStepButtonClick"/>
+            <views:ArrivalTargetButtonView x:Name="btnb" Grid.Column="16" Grid.Row="4" Click="TwoStepButtonClick" />
+            <views:ArrivalSignalView x:Name="signalB" Grid.Column="17" Grid.Row="4" Click="TwoStepButtonClick"/>
             <views:TurnoutButtonView x:Name="btn2" Grid.Column="5" Grid.Row="8" Click="TwoStepButtonClick"/>
             <views:TurnoutButtonView x:Name="btn4" Grid.Column="6" Grid.Row="8" Click="TwoStepButtonClick"/>
             <views:TurnoutButtonView x:Name="btn1" Grid.Column="14" Grid.Row="8" Click="TwoStepButtonClick"/>
-            <!--<local:DominoButton x:Name="btnTorles" Grid.Column="9" Grid.Row="8" Click="btn_Click">
-                <Grid>
-                    <Image Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/zoldGomb.png"/>
-                </Grid>
-            </local:DominoButton>-->
+            <views:DeleteRouteButtonView x:Name="btnTorles" Grid.Column="9" Grid.Row="8" Click="TwoStepButtonClick"/>
             <views:TurnoutCommonButtonView x:Name="btnkozosallitas" Grid.Column="11" Grid.Row="8" Click="TwoStepButtonClick"/>
             <views:TurnoutFeedbackButtonView x:Name="btnValtovisszajel" Grid.Column="12" Grid.Row="8" Click="btnValtovisszajel_Click"/>
-            <!--<local:DominoButton  x:Name="btnValtovisszajel" Grid.Column="12" Grid.Row="8" Click="btn_Click">
-                <Grid>
-                    <Image Margin="0,35,0,0" Style="{DynamicResource buttonStyleNormal}" Source="/Domino 55;component/img/feher-kekGomb.png"/>
-                </Grid>
-            </local:DominoButton>-->
+
+            <!--Turnout feedback-->
             <views:TurnoutFeedbackView x:Name="valto2" Grid.Column="6" Grid.Row="4" Margin="-1,0,0,0">
                 <views:TurnoutFeedbackView.RenderTransform>
                     <ScaleTransform ScaleX="-1"/>
@@ -126,6 +113,7 @@
                     <ScaleTransform ScaleX="1" ScaleY="1"/>
                 </views:TurnoutFeedbackView.RenderTransform>
             </views:TurnoutFeedbackView>
+            
         </Grid>
     </DockPanel>
 </Window>

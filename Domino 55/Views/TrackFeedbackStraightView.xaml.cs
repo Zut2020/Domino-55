@@ -16,16 +16,16 @@ using System.Windows.Shapes;
 namespace Domino_55.Views
 {
     /// <summary>
-    /// Interaction logic for TurnoutFeedbackView.xaml
+    /// Interaction logic for TrackFeedbackView.xaml
     /// </summary>
-    public partial class TurnoutFeedbackView : UserControl
+    public partial class TrackFeedbackStraightView : TrackFeedbackView
     {
-        public TurnoutFeedbackView()
+        public TrackFeedbackStraightView()
         {
             InitializeComponent();
         }
 
-        internal void SetBranch()
+        public override void Free()
         {
             this.Dispatcher.Invoke(() =>
             {
@@ -33,7 +33,23 @@ namespace Domino_55.Views
 
                 Image image = new Image
                 {
-                    Source = new BitmapImage(new Uri("/Domino 55;component/img/valtoKitero.png", UriKind.Relative))
+                    Source = new BitmapImage(new Uri("/Domino 55;component/img/egyenesUres.png", UriKind.Relative))
+                };
+
+                grid.Children.Clear();
+                grid.Children.Add(image);
+            }); ;
+        }
+
+        public override void Lock()
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                Grid grid = this.Content as Grid;
+
+                Image image = new Image
+                {
+                    Source = new BitmapImage(new Uri("/Domino 55;component/img/egyenesLezart.png", UriKind.Relative))
                 };
 
                 grid.Children.Clear();
@@ -41,7 +57,7 @@ namespace Domino_55.Views
             });
         }
 
-        public void SetStraight()
+        public override void Occupy()
         {
             this.Dispatcher.Invoke(() =>
             {
@@ -49,7 +65,7 @@ namespace Domino_55.Views
 
                 Image image = new Image
                 {
-                    Source = new BitmapImage(new Uri("/Domino 55;component/img/valtoEgyenes.png", UriKind.Relative))
+                    Source = new BitmapImage(new Uri("/Domino 55;component/img/egyenesFoglalt.png", UriKind.Relative))
                 };
 
                 grid.Children.Clear();
@@ -57,7 +73,7 @@ namespace Domino_55.Views
             });
         }
 
-        internal void SetOff()
+        public override void Release()
         {
             this.Dispatcher.Invoke(() =>
             {
@@ -65,23 +81,7 @@ namespace Domino_55.Views
 
                 Image image = new Image
                 {
-                    Source = new BitmapImage(new Uri("/Domino 55;component/img/valtoUres.png", UriKind.Relative))
-                };
-
-                grid.Children.Clear();
-                grid.Children.Add(image);
-            });
-        }
-
-        internal void LockStraight()
-        {
-            this.Dispatcher.Invoke(() =>
-            {
-                Grid grid = this.Content as Grid;
-
-                Image image = new Image
-                {
-                    Source = new BitmapImage(new Uri("/Domino 55;component/img/valtoEgyenesLezart.png", UriKind.Relative))
+                    Source = new BitmapImage(new Uri("/Domino 55;component/img/egyenesUres.png", UriKind.Relative))
                 };
 
                 grid.Children.Clear();
