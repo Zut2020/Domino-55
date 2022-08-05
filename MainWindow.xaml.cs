@@ -1,5 +1,4 @@
-﻿using Domino_55.Controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,20 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Domino_55.Views
+namespace Domino_55
 {
     /// <summary>
-    /// Interaction logic for TurnoutCommonButtonView.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class TurnoutCommonButtonView : TwoStepButtonView
+    public partial class MainWindow : Window
     {
-        private TurnoutCommonButtonController controller;
-        public TurnoutCommonButtonView()
+        public MainWindow()
         {
             InitializeComponent();
-            controller = new TurnoutCommonButtonController(this);
         }
-
-        public override TwoStepButtonController Controller() => controller;
     }
 }
