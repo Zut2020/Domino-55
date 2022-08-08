@@ -37,6 +37,10 @@ namespace Domino_55.Model
             working = true;
             Turnout turnout = actions[0].turnout;
             turnout.Switch();
+            if (turnout.DirectionProperty == Turnout.Direction.Branch)
+                Z21.Z21.Instance.SetTurnoutBranch((byte)turnout.number);
+            else
+                Z21.Z21.Instance.SetTurnoutStraight((byte)turnout.number);
             Thread.Sleep(2500);
             UI.UI.Instance.mainWindow.StopTurnoutBlink(turnout.number);
             actions.RemoveAt(0);
