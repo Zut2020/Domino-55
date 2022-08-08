@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Domino_55
+namespace Domino_55.UI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for TurnoutFeedbackButton.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TurnoutFeedbackButton : Button
     {
-        public MainWindow()
+        public TurnoutFeedbackButton()
         {
             InitializeComponent();
         }

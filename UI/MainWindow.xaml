@@ -1,0 +1,67 @@
+﻿<Window x:Class="Domino_55.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Domino_55" xmlns:ui="clr-namespace:Domino_55.UI"
+        mc:Ignorable="d"
+        Title="MainWindow"  Height="760" Width="1900"
+        ResizeMode="NoResize" MinWidth="800" MinHeight="320" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+    <DockPanel Margin="0">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Mód">
+                <!--<MenuItem x:Name="miDomInd" IsCheckable="True" Header="Domino önálló" Checked="miDomInd_Checked" />
+                <MenuItem x:Name="miDomCon" IsCheckable="True" IsEnabled="False" Header="Domino vezérelt" Checked="miDomCon_Checked" />
+                <MenuItem x:Name="miElpInd" IsCheckable="True" IsEnabled="False" Header="Elpult önálló" Checked="miElpInd_Checked" />
+                <MenuItem x:Name="miElpCon" IsCheckable="True" IsEnabled="False" Header="Elpult vezérelt" Checked="miElpCon_Checked" />-->
+            </MenuItem>
+            <MenuItem Header="Gomb méret">
+                <!--<MenuItem x:Name="miNormal" IsCheckable="True" Header="Normál" Checked="miNormal_Checked"/>
+                <MenuItem x:Name="miLarge" IsCheckable="True" Header="Nagy" Checked="miLarge_Checked"/>-->
+            </MenuItem>
+        </Menu>
+        <Grid x:Name="gridMain" DockPanel.Dock="Bottom" Margin="0">
+            <Grid.Background>
+                <ImageBrush ImageSource="/UI/Images/background.png" />
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <ui:TurnoutCommonButton x:Name="btnTurnoutCommon" Grid.Column="11" Grid.Row="8" Click="TwoStepButtonClick"/>
+            <ui:TurnoutButton x:Name="btn2" Grid.Column="5" Grid.Row="8" Number="2" Click="TwoStepButtonClick"/>
+            <ui:TurnoutButton x:Name="btn4" Grid.Column="6" Grid.Row="8" Number="4" Click="TwoStepButtonClick"/>
+            <ui:TurnoutButton x:Name="btn1" Grid.Column="14" Grid.Row="8" Number="1" Click="TwoStepButtonClick"/>
+            
+        </Grid>
+    </DockPanel>
+</Window>
