@@ -24,6 +24,8 @@ namespace Domino_55
             turnoutFeedbacks.Add(valto1);
             turnoutFeedbacks.Add(valto2);
             turnoutFeedbacks.Add(valto4);
+
+            UI.UI.Instance.mainWindow = this;
         }
 
         public static void MsgBox(String msg)
@@ -31,15 +33,24 @@ namespace Domino_55
             MessageBox.Show(msg);
         }
 
-        internal void StartTurnoutBlink(int number, Model.Turnout.Direction direction)
-        { 
+        internal void StartTurnoutBlink(int number)
+        {
+            TurnoutFeedback feedback = turnoutFeedbacks.Find(x => x.Number == number);
+            feedback.AntimateBlinkStart();
+        }
 
+        internal void StopTurnoutBlink(int number)
+        {
+            TurnoutFeedback feedback = turnoutFeedbacks.Find(x => x.Number == number);
+            feedback.AnimateBlinkStop();
         }
 
         internal void LightRoute(char startSignal, char endSignal)
         {
 
         }
+
+        
 
         internal void DarkenRoute(char startSignal, char endSignal)
         {

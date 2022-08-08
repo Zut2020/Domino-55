@@ -126,11 +126,13 @@ namespace Domino_55.UI
         public void AntimateBlinkStart()
         {
             blinking = true;
+            Update();
         }
 
         public void AnimateBlinkStop()
         {
             blinking = false;
+            Update();
         }
 
         internal void SetBranch()

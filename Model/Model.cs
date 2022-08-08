@@ -36,10 +36,13 @@ namespace Domino_55.Model
             }
         }
 
-        internal void SetTurnout(int number, Turnout.Direction direction)
+        internal async void SetTurnout(int number, Turnout.Direction direction)
         {
-            Turnout turnout = turnouts.Find(x => x.number == number);
-            if (turnout != null) stepper.SetTurnout(turnout, direction);
+            await Task.Run(() =>
+            {
+                Turnout turnout = turnouts.Find(x => x.number == number);
+                if (turnout != null) stepper.SetTurnout(turnout, direction);
+            });
         }
 
         internal void SetRoute(char startSignal, char endSignal)

@@ -26,6 +26,14 @@ namespace Domino_55.Model
             this.direction = Direction.Straight;
         }
 
+        internal void Switch()
+        {
+            if (direction == Direction.Branch)
+                direction = Direction.Straight;
+            else
+                direction = Direction.Branch;
+        }
+
         public Turnout(int number, Direction direction)
         {
             this.number = number;
