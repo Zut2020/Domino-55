@@ -27,6 +27,6 @@
         </Style>
     </Button.Resources>
     <Grid>
-        <Image Margin="0,35,0,0" Source="/img/feher-kekGomb.png" Style="{DynamicResource buttonStyleNormal}" />
+        <Image Margin="0,35,0,0" Source="/UI/Images/white-blueButton.png" Style="{DynamicResource buttonStyleNormal}" />
     </Grid>
 </Button>

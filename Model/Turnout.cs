@@ -11,7 +11,7 @@ namespace Domino_55.Model
         public enum Direction
         {
             Straight, 
-            Diverging,
+            Branch,
             Common
         }
 
@@ -19,6 +19,12 @@ namespace Domino_55.Model
         private Direction direction;
 
         internal Direction DirectionProperty { get => direction; private set => direction = value; }
+
+        public Turnout(int number)
+        {
+            this.number = number;
+            this.direction = Direction.Straight;
+        }
 
         public Turnout(int number, Direction direction)
         {

@@ -57,11 +57,30 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <!-- Buttons -->
             <ui:TurnoutCommonButton x:Name="btnTurnoutCommon" Grid.Column="11" Grid.Row="8" Click="TwoStepButtonClick"/>
+            <ui:TurnoutFeedbackButton x:Name="btnValtovisszajel" Grid.Column="12" Grid.Row="8" Click="setTurnoutFeedback"/>
             <ui:TurnoutButton x:Name="btn2" Grid.Column="5" Grid.Row="8" Number="2" Click="TwoStepButtonClick"/>
             <ui:TurnoutButton x:Name="btn4" Grid.Column="6" Grid.Row="8" Number="4" Click="TwoStepButtonClick"/>
             <ui:TurnoutButton x:Name="btn1" Grid.Column="14" Grid.Row="8" Number="1" Click="TwoStepButtonClick"/>
-            
+
+
+            <!--Turnout feedback-->
+            <ui:TurnoutFeedback x:Name="valto2" Grid.Column="6" Grid.Row="4" Number="2" Margin="-1,0,0,0">
+                <ui:TurnoutFeedback.RenderTransform>
+                    <ScaleTransform ScaleX="-1"/>
+                </ui:TurnoutFeedback.RenderTransform>
+            </ui:TurnoutFeedback>
+            <ui:TurnoutFeedback x:Name="valto4" Grid.Column="7" Grid.Row="5" Number="4" Margin="-1,0,0,0">
+                <ui:TurnoutFeedback.RenderTransform>
+                    <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                </ui:TurnoutFeedback.RenderTransform>
+            </ui:TurnoutFeedback>
+            <ui:TurnoutFeedback x:Name="valto1" Grid.Column="14" Grid.Row="4" Number="1" Margin="1,0,0,0">
+                <ui:TurnoutFeedback.RenderTransform>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </ui:TurnoutFeedback.RenderTransform>
+            </ui:TurnoutFeedback>
         </Grid>
     </DockPanel>
 </Window>

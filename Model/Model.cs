@@ -12,6 +12,13 @@ namespace Domino_55.Model
         List<Signal> signals = new List<Signal>();
         TurnoutStepper stepper = new TurnoutStepper();
 
+        public Model()
+        {
+            turnouts.Add(new Turnout(1));
+            turnouts.Add(new Turnout(2));
+            turnouts.Add(new Turnout(4));
+        }
+
         private static Model instance = null;
         private static readonly object instanceLock = new object();
         public static Model Instance

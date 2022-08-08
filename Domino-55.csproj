@@ -17,6 +17,7 @@
     <None Remove="UI\Images\turnoutEmpty.png" />
     <None Remove="UI\Images\turnoutLocked.png" />
     <None Remove="UI\Images\turnoutStraight.png" />
+    <None Remove="UI\Images\white-blueButton.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +43,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="UI\Images\turnoutStraight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\Images\white-blueButton.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

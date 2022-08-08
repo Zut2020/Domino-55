@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using Domino_55.UI;
 
 namespace Domino_55
@@ -15,9 +16,14 @@ namespace Domino_55
     {
         private List<TwoStepButton> pressed = new List<TwoStepButton>();
         private bool turnoutFeedback = false;
+        private List<TurnoutFeedback> turnoutFeedbacks = new List<TurnoutFeedback>();
         public MainWindow()
         {
             InitializeComponent();
+
+            turnoutFeedbacks.Add(valto1);
+            turnoutFeedbacks.Add(valto2);
+            turnoutFeedbacks.Add(valto4);
         }
 
         public static void MsgBox(String msg)
@@ -50,24 +56,24 @@ namespace Domino_55
 
         }
 
-        internal void setTurnoutFeedback()
+        internal void setTurnoutFeedback(object sender, RoutedEventArgs e)
         {
-            //if (turnoutFeedback)
-            //{
-            //    turnoutFeedback = false;
-            //    foreach (TurnoutFeedbackController contorller in TurnoutFeedbackControllers)
-            //    {
-            //        contorller.FeedbackOFF();
-            //    }
-            //}
-            //else
-            //{
-            //    turnoutFeedback = true;
-            //    foreach (TurnoutFeedbackController contorller in TurnoutFeedbackControllers)
-            //    {
-            //        contorller.FeedbackON();
-            //    }
-            //}
+            if (turnoutFeedback)
+            {
+                turnoutFeedback = false;
+                foreach (TurnoutFeedback feedback in turnoutFeedbacks)
+                {
+                    feedback.FeedbackOFF();
+                }
+            }
+            else
+            {
+                turnoutFeedback = true;
+                foreach (TurnoutFeedback feedback in turnoutFeedbacks)
+                {
+                    feedback.FeedbackON();
+                }
+            }
         }
 
         private void TwoStepButtonClick(object sender, RoutedEventArgs e)
