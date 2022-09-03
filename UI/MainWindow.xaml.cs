@@ -26,6 +26,8 @@ namespace Domino_55
             turnoutFeedbacks.Add(valto4);
 
             UI.UI.Instance.mainWindow = this;
+
+            setTurnoutFeedback(null, null);
         }
 
         public static void MsgBox(String msg)
