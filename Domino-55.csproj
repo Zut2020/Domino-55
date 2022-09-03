@@ -9,10 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="UI\Images\45empty.png" />
+    <None Remove="UI\Images\45locked.png" />
     <None Remove="UI\Images\background.png" />
     <None Remove="UI\Images\black-whiteButton.png" />
     <None Remove="UI\Images\blackButton.png" />
+    <None Remove="UI\Images\greenButton.png" />
     <None Remove="UI\Images\pressed.png" />
+    <None Remove="UI\Images\red-greenButton.png" />
+    <None Remove="UI\Images\straightEmpty.png" />
+    <None Remove="UI\Images\straightLocked.png" />
     <None Remove="UI\Images\turnoutBranch.png" />
     <None Remove="UI\Images\turnoutEmpty.png" />
     <None Remove="UI\Images\turnoutLocked.png" />
@@ -21,6 +27,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="UI\Images\45empty.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\Images\45locked.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="UI\Images\background.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -30,7 +42,19 @@
     <Content Include="UI\Images\blackButton.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="UI\Images\greenButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="UI\Images\pressed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\Images\red-greenButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\Images\straightEmpty.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\Images\straightLocked.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="UI\Images\turnoutBranch.png">
